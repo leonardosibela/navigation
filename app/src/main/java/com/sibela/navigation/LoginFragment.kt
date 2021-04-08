@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.sibela.navigation.databinding.FragmentHomeBinding
 import com.sibela.navigation.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -31,7 +30,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonConfirm.setOnClickListener {
-            val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+            val username = binding.editTextUsername.text.toString()
+            val password = binding.editTextPassword.text.toString()
+
+            val action =
+                LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(username, password)
             findNavController().navigate(action)
         }
     }
