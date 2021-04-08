@@ -35,7 +35,10 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
 
         binding.textViewUsername.text = args.username
         binding.textViewPassword.text = args.password
+
+        binding.buttonOk.setOnClickListener {
+            val action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
     }
-
-
 }
